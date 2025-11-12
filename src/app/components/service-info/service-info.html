@@ -1,0 +1,45 @@
+<section class="section">
+    <header class="section__header">
+        <div class="section__grid flex">
+
+            <div class="section__image">
+                <img src="/media/page-01.jpg" alt="">
+            </div>
+
+            <div class="section__side">
+                <div class="section__title">
+                    <h2 class="title-07">Professional cleaning service</h2>
+                </div>
+            </div>
+
+            <div class="section__side">
+                <div class="section__subtitle">
+                    <h3 class="title-03">Elevate Your Space with Our Luxury Cleaning Services. Experience meticulous care, eco-friendly products, and top results designed for homes and businesses that demand perfection.</h3>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <div class="section__main">
+        <div class="section__grid">
+            <div class="service-items-container">
+
+                <ul class="service-items">
+                    <li
+                        class="service-items__item flex flex--nowrap"
+                        *ngFor="let s of servicesForRender(); trackBy: trackById"
+                    >
+                        <i class="service-item__icon">
+                            <div class="icon-service" [class]="s.icon" aria-hidden="true"></div>
+                        </i>
+                        <div class="service-item__info">
+                            <h3 class="service-item__title">{{ s.title }}</h3>
+                            <p class="service-items__text">{{ s.text }}</p>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</section>

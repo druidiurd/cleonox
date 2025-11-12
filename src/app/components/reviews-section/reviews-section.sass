@@ -1,0 +1,142 @@
+.section
+  color: #fff
+.reviews-section
+  // padding: 60px 20px
+  overflow: hidden
+
+.reviews-header
+  max-width: 900px
+  margin: 0 auto 40px auto
+  text-align: center
+  padding: 0 20px
+
+.reviews-title
+  font-size: 48px
+  font-weight: 700
+  margin-bottom: 20px
+
+.reviews-description
+  font-size: 20px
+  line-height: 1.6
+  color: #ccc
+
+.reviews-main
+  overflow: hidden
+  padding: 0 20px // Відступи для країв
+
+.reviews-grid
+  display: grid
+  grid-auto-flow: column
+  grid-auto-columns: 100% // За замовчуванням один елемент на всю ширину
+  gap: 20px
+  transition: transform 0.3s ease-in-out
+
+  @media (min-width: 768px)
+    grid-auto-columns: calc((100% / 2) - 10px) // Два елементи
+    gap: 20px
+
+  @media (min-width: 1024px)
+    grid-auto-columns: calc((100% / 3) - 13.33px) // Три елементи
+    gap: 20px
+
+.review-item
+  background-color: #fff
+  color: #333
+  border-radius: 12px
+  padding: 30px
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1)
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  min-height: 214px // Щоб картки були приблизно однакової висоти
+
+.reviewer-info
+  display: flex
+  align-items: center
+  margin-bottom: 15px
+
+.reviewer-avatar
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  object-fit: cover
+  margin-right: 15px
+
+.reviewer-details
+  display: flex
+  flex-direction: column
+
+.reviewer-name
+  font-size: 18px
+  font-weight: 600
+  margin-bottom: 5px
+
+.stars
+  display: flex
+  .star-icon
+    width: 18px
+    height: 18px
+    color: #FFD700 // Золотий колір для зірок
+    margin-right: 2px
+
+.review-text
+  font-size: 16px
+  line-height: 1.5
+  margin-bottom: 15px
+  flex-grow: 1 // Дозволяє тексту займати доступний простір
+
+.review-date
+  font-size: 14px
+  color: #666
+  text-align: right
+
+.reviews-navigation
+  display: flex
+  justify-content: center
+  align-items: center
+  gap: 15px
+  margin-top: 40px
+
+  .nav-button
+    background: #333
+    border: 1px solid #555
+    border-radius: 50%
+    width: 40px
+    height: 40px
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    transition: background-color 0.3s ease, border-color 0.3s ease
+    color: #fff
+
+    &:hover:not(:disabled)
+      background-color: #555
+      border-color: #777
+
+    &:disabled
+      opacity: 0.5
+      cursor: not-allowed
+
+    svg
+      width: 20px
+      height: 20px
+
+  .pagination-dots
+    display: flex
+    gap: 8px
+
+    .dot
+      width: 10px
+      height: 10px
+      border-radius: 50%
+      background-color: #555
+      border: none
+      cursor: pointer
+      transition: background-color 0.3s ease
+
+      &.active
+        background-color: #FFD700 // Активна точка золотого кольору
+      
+      &:hover:not(.active)
+        background-color: #777

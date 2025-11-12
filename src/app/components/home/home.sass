@@ -1,0 +1,135 @@
+@use '../../../addons/mixins' as *
+
+
+.clx-hero
+  position: relative
+  min-height: 100dvh
+  display: grid
+  place-items: center
+  // основний бекграунд як 2 шари: radial поверх solid
+  background-color: $color-dark
+  background-image: url('/media/main-bg.jpg')
+  background-size: cover
+  z-index: 1
+  &:after
+    content: ''
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-image: url('/media/main-top-bg.png')
+    background-size: cover
+    z-index: -1
+
+  &__bg
+    position: absolute
+    inset: 0 
+    pointer-events: none
+
+    // розбиваємо складний shorthand на окремі властивості
+    background-image: linear-gradient(180deg, rgba($color-accent, .10), rgba($color-accent, 0)), repeating-linear-gradient(to right, rgba($color-cyan, .10) 0 8px, rgba($color-cyan, 0) 8px 32px)
+    background-position: 0 0, 0 0
+    background-size: 100% 30%, auto
+    background-repeat: no-repeat, repeat
+
+    // маска як окрема властивість
+    -webkit-mask-image: radial-gradient(70% 60% at 50% 12%, #000 55%, transparent 100%)
+    mask-image: radial-gradient(70% 60% at 50% 12%, #000 55%, transparent 100%)
+
+  &__content
+    position: relative
+    width: min(980px, 92%)
+    margin-inline: auto
+    text-align: center
+    color: $color-text
+
+.clx-logo
+  margin-bottom: 18px
+  &__mark
+    width: 66px
+    height: 66px
+    margin: 0 auto 10px
+    border-radius: 14px
+    background-image: radial-gradient(100% 100% at 30% 20%, rgba($color-cyan,.45), transparent 60%), linear-gradient(135deg, rgba($color-accent,.35), rgba($color-cyan,.25))
+    background-repeat: no-repeat, no-repeat
+    box-shadow: 0 0 0 1px rgba($color-cyan,.25) inset, 0 20px 60px rgba($color-accent,.20), 0 10px 30px rgba($color-cyan,.20)
+  &__text
+    font: 600 28px/1.1 ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial
+    letter-spacing: .12em
+    color: #5fd3ff
+  &__sub
+    margin-top: 4px
+    font: 500 14px/1.2 ui-sans-serif, system-ui
+    letter-spacing: .18em
+    color: rgba($color-text,.8)
+
+.clx-title
+  font-weight: 700
+  font-size: 24px
+  +rwd($tablet-md)
+    font-size: 28px
+  +rwd($tablet-lg)
+    font-size: 32px
+
+.clx-subtitle
+  color: rgba($color-text, 1)
+  font-size: 14px
+  font-weight: 400
+  +rwd($tablet-md)
+    font-size: 20px
+
+.clx-grid
+  display: grid
+  gap: 22px
+  grid-template-columns: 1fr
+  max-width: 900px
+  margin: 0 auto
+  +rwd($tablet-lg)
+    grid-template-columns: 1fr 1fr
+    gap: 28px
+
+.clx-card
+  box-shadow: 0px 14px 35px 0px rgba(0, 0, 0, 0.19), 0px 7px 18px 0px rgba(0, 0, 0, 0.2)
+  text-decoration: none
+  color: $color-text
+  background: rgba(255, 255, 255, 0.05)
+  cursor: pointer
+  border: 1px solid rgba($color-cyan, .25)
+  border-radius: 18px
+  padding: 22px 26px
+  display: grid
+  place-items: center
+  transition: border-color .2s ease, transform .15s ease, box-shadow .2s ease
+  border: 2px solid rgba($color-accent, 0)
+  min-height: 72px
+  &:hover
+    transform: translateY(-2px)
+    border-color: rgba($color-accent,1)
+    box-shadow: 0 26px 60px rgba(#000,.55), 0 10px 30px rgba($color-accent,.12)
+  span
+    font-weight: 500
+    font-size: 16px
+    line-height: 1.4
+    text-align: center
+    +rwd($tablet-sm)
+      font-size: 18px
+    +rwd($tablet-md)
+      font-size: 20px
+    +rwd($tablet-lg)
+      font-size: 24px
+
+.logo-container
+  width: 332px
+  margin: auto
+  img
+    width: 100%
+.title-container
+  margin-top: 18px
+  margin-bottom: 4px
+  +rwd($tablet-md)
+    margin-top: 50px
+.subtitle-container
+  margin-bottom: 30px
+  +rwd($tablet-lg)
+    margin-bottom: 60px

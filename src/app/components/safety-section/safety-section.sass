@@ -1,0 +1,33 @@
+@use '../../../addons/mixins' as *
+
+.section
+    position: relative
+    color: #fff
+    +rwd-reverse($tablet-md)
+        padding-top: 340px
+    +rwd-reverse(600px)
+        padding-top: 300px
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        height: 260px
+        width: 100%
+        background: rgba(14, 14, 15, 1) url('/media/safety-bg.jpg') no-repeat 50% 50%
+        background-size: 100%
+        +rwd(600px)
+            height: 300px
+        +rwd($tablet-md)
+            width: 45%
+            height: 100%
+            background-size: cover
+    &__header
+        margin-bottom: 0
+    &__subtitle
+        margin-top: 30px
+
+.list
+    &__item
+        margin-right: 40px
+        margin-top: 40px

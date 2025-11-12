@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { TopBar } from "./components/top-bar/top-bar";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterOutlet, TopBar],
   templateUrl: './app.html',
   styleUrl: './app.sass'
 })
 export class App {
-  protected title = 'cleonox';
+  protected title = 'Cleonox';
 }

@@ -1,0 +1,16 @@
+@use '../../../addons/mixins' as *
+
+.industries-list
+    &__item
+        margin-top: 5px
+        margin-bottom: 5px
+        width: 100%
+        +rwd($tablet-sm)
+            width: 50%
+            margin-top: 25px
+            margin-bottom: 25px
+            text-align: center
+        +rwd($tablet-sm)
+            width: 33%
+        +rwd($tablet-lg)
+            width: 25%

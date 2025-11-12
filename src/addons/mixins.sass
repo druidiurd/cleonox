@@ -1,0 +1,23 @@
+// Breakpoints (підігнано під твій стиль)
+$phone-lg: 480px
+$tablet-sm: 640px
+$tablet-md: 768px
+$tablet-lg: 992px
+$desktop-sm: 1100px
+$desktop-md: 1300px
+$desktop-lg: 1500px
+
+$color-dark: rgba(35, 35, 35, 1)
+$color-accent: rgba(47, 218, 202, 1)
+$color-cyan: #18a6ff
+$color-text: rgba(29, 29, 29, 1)
+$color-muted: #a8b3b9
+$color-gray: rgba(135, 135, 135, 1)
+
+= rwd($min)
+  @media (min-width: $min)
+    @content
+
+= rwd-reverse($max)
+  @media (max-width: $max - 1)
+    @content

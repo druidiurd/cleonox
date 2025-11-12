@@ -1,0 +1,67 @@
+<section class="section section--full-main section--dark">
+    <header class="section__header">
+        <div class="section__grid flex">
+
+            <div class="section__side">
+                <div class="section__title">
+                    <h2 class="title-07">Reviews</h2>
+                </div>
+            </div>
+
+            <div class="section__side">
+                <div class="section__subtitle">
+                    <h3 class="title-03">Cleonox is a Top-Rated company on Thumbtack, trusted by over 5,000 satisfied clients across New York City.</h3>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <div class="section__main">
+
+        <section class="reviews-section">
+
+            <div class="reviews-main">
+                <div class="reviews-grid" #reviewsGrid>
+                @for (item of reviewsItems(); track item.id) { <!-- Виправлено: додано дужки -->
+                    <div class="review-item">
+                    <div class="reviewer-info">
+                        <img [src]="item.avatar" alt="Reviewer Avatar" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                        <span class="reviewer-name">{{ item.name }}</span>
+                        <div class="stars">
+                            @for (_ of getStarsArray(item.rating); track $index) { <!-- Виправлено: додано дужки -->
+                            <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.917 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/>
+                            </svg>
+                            }
+                        </div>
+                        </div>
+                    </div>
+                    <p class="review-text">{{ item.text }}</p>
+                    <span class="review-date">{{ item.date }}</span>
+                    </div>
+                }
+                </div>
+            </div>
+
+            <div class="reviews-navigation">
+                <button class="nav-button" (click)="scrollLeft()" [disabled]="!canScrollLeft()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+                </button>
+                <div class="pagination-dots">
+                @for (dot of paginationDots(); track $index) { <!-- Виправлено: додано дужки -->
+                    <button class="dot" [class.active]="activeDotIndex() === $index" (click)="goToPage($index)"></button>
+                }
+                </div>
+                <button class="nav-button" (click)="scrollRight()" [disabled]="!canScrollRight()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                </svg>
+                </button>
+            </div>
+        </section>
+
+    </div>
+</section>

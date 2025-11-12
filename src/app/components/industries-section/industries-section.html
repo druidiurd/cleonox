@@ -1,0 +1,32 @@
+<section class="section">
+    <header class="section__header">
+        <div class="section__grid flex">
+
+            <div class="section__side">
+                <div class="section__title">
+                    <h2 class="title-07">Industries <br>We Serve</h2>
+                </div>
+            </div>
+
+            <div class="section__side">
+                <div class="section__subtitle">
+                    <h3 class="title-03">We proudly provide janitorial and maintenance services to a wide range of industries, ensuring each space remains spotless, safe, and welcoming.</h3>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <div class="section__main">
+        <div class="section__grid">
+
+            <div class="industries-list-container">
+                <ul class="industries-list flex">
+                    @for (item of industriesList; track $index) {
+                        <li class="industries-list__item"><strong>{{ item }}</strong></li>
+                    }
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</section>

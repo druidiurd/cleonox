@@ -1,1 +1,196 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'addons/mixins' as *
+
+@font-face
+  font-family: 'Gilroy'
+  src: url('assets/fonts/gilroy/Gilroy-Light.woff2') format('woff2'), url('assets/fonts/gilroy/Gilroy-Light.woff') format('woff'), url('assets/fonts/gilroy/Gilroy-Light.ttf') format('truetype'), url('assets/fonts/gilroy/Gilroy-Light.eot') format('embedded-opentype')
+  font-weight: 300
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'Gilroy'
+  src: url('assets/fonts/gilroy/Gilroy-Regular.woff2') format('woff2'), url('assets/fonts/gilroy/Gilroy-Regular.woff') format('woff'), url('assets/fonts/gilroy/Gilroy-Regular.ttf') format('truetype'), url('assets/fonts/gilroy/Gilroy-Regular.eot') format('embedded-opentype')
+  font-weight: 400
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'Gilroy'
+  src: url('assets/fonts/gilroy/Gilroy-Medium.woff2') format('woff2'), url('assets/fonts/gilroy/Gilroy-Medium.woff') format('woff'), url('assets/fonts/gilroy/Gilroy-Medium.ttf') format('truetype'), url('assets/fonts/gilroy/Gilroy-Medium.eot') format('embedded-opentype')
+  font-weight: 500 
+  font-style: normal
+  font-display: swap
+
+@font-face
+  font-family: 'Gilroy'
+  src: url('assets/fonts/gilroy/Gilroy-Bold.woff2') format('woff2'), url('assets/fonts/gilroy/Gilroy-Bold.woff') format('woff'), url('assets/fonts/gilroy/Gilroy-Bold.ttf') format('truetype'), url('assets/fonts/gilroy/Gilroy-Bold.eot') format('embedded-opentype')
+  font-weight: 700
+  font-style: normal
+  font-display: swap
+
+html
+  scroll-behavior: smooth
+
+body
+  margin: 0
+  line-height: 1.2
+  color: $color-text
+  // background: $color-dark
+  font-family: 'Gilroy', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif
+
+h1, h2, h3, h4, h5, h6, ul, li, p
+  margin: 0
+  padding: 0
+
+ul, li
+  list-style: none
+
+.text
+  &--center
+    text-align: center
+  &--500
+    font-weight: 500
+
+.color-accent
+  color: $color-accent
+.color-gray
+  color: $color-gray
+
+.button
+  text-align: center
+  font-size: 16px
+  padding: 16px 24px
+  font-weight: 600
+  background-color: rgba(#101618, .6)
+  color: $color-text
+  border: 1px solid rgba($color-cyan, .25)
+  border-radius: 14px
+  cursor: pointer
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease
+  &:hover
+    transform: translateY(-1px)
+    border-color: rgba($color-accent, .45)
+    box-shadow: 0 10px 30px rgba($color-cyan, .15), 0 2px 10px rgba(#000, .35)
+
+.flex
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+  &--center
+    justify-content: center
+  &--space-between
+    justify-content: space-between
+  &--nowrap
+    flex-wrap: nowrap
+  &--baseline
+    align-items: baseline
+
+
+.title-08
+  font-size: 14px
+  +rwd($tablet-md)
+    font-size: 16px
+.title-07
+  font-size: 32px
+  line-height: 1
+  +rwd($tablet-md)
+    font-size: 48px
+.title-06
+  font-size: 42px
+.title-05
+  font-size: 38px
+.title-04
+  font-weight: 700
+  font-size: 22px
+  +rwd($tablet-sm)
+    font-size: 28px
+  +rwd($tablet-md)
+    font-size: 30px
+  +rwd($tablet-lg)
+    font-size: 32px
+.title-03
+  font-weight: 300
+  font-size: 20px
+  line-height: 1.2
+  +rwd($tablet-sm)
+    font-size: 24px
+  +rwd($desktop-sm)
+    font-size: 26px
+  +rwd($desktop-md)
+    font-size: 28px
+.title-02
+  font-size: 22px
+.title-01
+  font-size: 20px
+
+
+
+.section
+  padding: 60px 16px
+  +rwd($tablet-lg)
+      padding: 100px 20px
+  &--dark
+    background-color: rgba(14, 14, 15, 1)
+    color: rgba(255, 255, 255, 1)
+  &--full-main
+    padding-left: 0
+    padding-right: 0
+    +rwd($tablet-lg)
+      padding-left: 0
+      padding-right: 0
+    .section
+      &__header
+        padding-left: 16px
+        padding-right: 16px
+        +rwd($tablet-lg)
+          padding-left: 20px
+          padding-right: 20px
+
+  &__grid
+    max-width: 1200px
+    margin: auto
+  &__header
+    margin-bottom: 60px
+  &__image
+    border-radius: 25px
+    overflow: hidden
+    margin-bottom: 60px
+    img
+      width: 100%
+  &__title
+    width: 80%
+    padding-right: 20px
+    box-sizing: border-box
+    +rwd($tablet-md)
+      max-width: 438px
+  &__subtitle
+    margin-top: 15px
+  &__side
+    width: 100%
+    +rwd($tablet-md)
+      width: 50%
+      margin-top: auto
+      margin-left: auto
+      margin-bottom: auto
+
+
+.icon-service
+  width: 100%
+  // max-width: 40px
+  height: 100%
+  display: inline-block
+  background-repeat: no-repeat
+  background-size: 40px
+  background-position: 50% 50%
+.icon-service-01
+  background-image: url('/media/icons/services/01.svg')
+.icon-service-02
+  background-image: url('/media/icons/services/02.svg')
+.icon-service-03
+  background-image: url('/media/icons/services/03.svg')
+.icon-service-04
+  background-image: url('/media/icons/services/04.svg')
+.icon-service-05
+  background-image: url('/media/icons/services/05.svg')
+.icon-service-06
+  background-image: url('/media/icons/services/06.svg')

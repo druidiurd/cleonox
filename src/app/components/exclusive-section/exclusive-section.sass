@@ -1,0 +1,80 @@
+
+.image-contaniner
+    width: 100%
+    img
+        width: 100%
+
+.features-section
+  background-color: #000 // Темний фон, як на зображенні
+  color: #fff
+  padding: 60px 20px
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 40px
+
+.features-grid
+  display: grid
+  grid-template-columns: 1fr // Один елемент на мобільних
+  gap: 20px
+  max-width: 1200px
+  width: 100%
+
+  @media (min-width: 768px)
+    grid-template-columns: 1fr 1fr // Два елементи на планшетах
+
+  @media (min-width: 1024px)
+    grid-template-columns: repeat(4, 1fr) // Чотири елементи на десктопах
+
+.feature-item
+//   background-color: #1a1a1a // Трохи світліший фон для карток
+  border-radius: 12px
+  padding: 30px
+  display: flex
+  flex-direction: column
+  align-items: center
+  text-align: center
+  gap: 20px
+//   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2)
+//   border: 1px solid #333 // Тонка рамка, як на зображенні
+
+  border: 0.5px solid linear-gradient(206.08deg, #2FDACA 16.43%, #0E0E0F 50.08%)
+  box-shadow: 0px 4px 34px 0px rgba(0, 0, 0, 0.25)
+
+.feature-icon-wrapper
+  width: 80px
+  height: 80px
+  border-radius: 50%
+//   background-color: #2a2a2a // Фон для іконки
+  display: flex
+  justify-content: center
+  align-items: center
+
+  .feature-icon-svg // Новий клас для img тегу
+    width: 40px
+    height: 40px
+    // Якщо SVG іконки мають вбудований колір, то stroke/fill тут не потрібні.
+    // Якщо вони монохромні і ви хочете їх пофарбувати, можна використовувати filter: invert(%) sepia(%) saturate(%) hue-rotate(%) brightness(%) contrast(%);
+    // Або, якщо SVG дозволяє, змінити колір через CSS (fill/stroke), але це вимагає, щоб SVG був вбудований через innerHTML або <svg> тег.
+    // Для img тегу це не працює напряму.
+
+.feature-description
+  font-size: 18px
+  line-height: 1.5
+  color: #ccc
+
+.promotions-button
+  background: linear-gradient(90deg, #f0f0f0, #e0e0e0) // Градієнт, як на зображенні
+  color: #333
+  border: none
+  border-radius: 30px
+  padding: 15px 40px
+  font-size: 20px
+  font-weight: 600
+  cursor: pointer
+  transition: all 0.3s ease
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2)
+
+  &:hover
+    transform: translateY(-2px)
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3)

@@ -1,0 +1,65 @@
+<section class="section">
+    <header class="section__header">
+        <div class="section__grid flex">
+
+            <div class="section__side">
+                <div class="section__title">
+                    <h2 class="title-07">Cleaning Packages</h2>
+                </div>
+            </div>
+
+            <div class="section__side">
+                <div class="section__subtitle">
+                    <h3 class="title-03">Each project is unique. We provide <strong>on-site estimates</strong> to ensure accurate pricing and the right service plan for your space.</h3>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <div class="section__main">
+        <div class="section__grid">
+
+            <div class="packages-grid">
+                @for (pkg of packagesWithSets(); track pkg.name) {
+                    <section class="package-card" role="region" aria-label="{{ pkg.name }}">
+                    <header class="package-card__head flex flex--baseline">
+                        <div class="package-card__title">
+                            <h4 class="title-07">{{ pkg.name }}</h4>
+                        </div>
+                        <span [class.package-card__sub]="pkg.subName">{{ pkg.subName }}</span>
+                    </header>
+
+                    <ul class="package-card__list">
+                        @for (item of premiumItems(); track item) {
+                        <li
+                            [class.included]="isIncluded(pkg, item)"
+                            [class.excluded]="!isIncluded(pkg, item)"
+                        >
+                            {{ item }}
+                        </li>
+                        } @empty {
+                        <li>No items available for this package.</li>
+                        }
+                    </ul>
+
+                    <div class="package-card__footer">
+                        <p class="package-card__note">
+                        @if (pkg.name === 'Basic') {
+                            Weekly / Biweekly / Monthly
+                        } @else if (pkg.name === 'Standard') {
+                            Recommended frequency
+                        } @else {
+                            Luxury full deep clean or seasonal refresh
+                        }
+                        </p>
+                        <button class="package-card__cta" type="button">Get A Quote</button>
+                    </div>
+                    </section>
+                } @empty {
+                    <p>No packages available.</p>
+                }
+                </div>
+            
+        </div>
+    </div>
+</section>

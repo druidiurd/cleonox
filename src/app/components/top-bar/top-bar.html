@@ -1,0 +1,51 @@
+<div class="top-bar flex flex--space-between">
+  <div class="top-bar__logo" role="img" aria-label="CLEONOX logo">
+    <img src="/media/logo.svg" alt="CLEONOX">
+  </div>
+
+  <div class="top-bar__hamburger">
+    <button
+      class="hamburger"
+      type="button"
+      (click)="onHamburger()"
+      [class.open]="isOpen()"
+      [attr.aria-expanded]="isOpen()"
+      aria-controls="main-nav"
+    >
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <!-- <span hidden class="visually-hidden">Toggle menu</span> -->
+    </button>
+  </div>
+
+  <div class="top-bar__nav">
+    <nav id="main-nav" class="main-nav" [class.open]="isOpen()" aria-hidden="{{ !isOpen() }}">
+      <a routerLink="/home">Home</a>
+      <a routerLink="/services">Services</a>
+      <a routerLink="/gallery">Gallery</a>
+      <a routerLink="/reviews">Reviews</a>
+      <a routerLink="/promotion">Promotion</a>
+    </nav>
+  </div>
+
+  <div class="top-bar__extra flex">
+    <div class="top-bar__lang">
+        <div class="lang">
+            <div class="lang__current flex">
+                <div class="lang__current-value">UKR</div>
+                <div class="lang__current-arrow"></div>
+            </div>
+            <div class="lang__list">
+                <ul>
+                    <li>UKR</li>
+                    <li>ENG</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="top-bar__contact">
+        <a href="#" class="top-bar__contact-phone">+1 (212) 301-0661</a>
+    </div>
+  </div>
+</div>

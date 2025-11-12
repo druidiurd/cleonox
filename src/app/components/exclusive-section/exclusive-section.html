@@ -1,0 +1,65 @@
+<section class="section section--dark">
+    <header class="section__header">
+        <div class="section__grid flex">
+
+            <div class="section__side">
+                <div class="section__title">
+                    <h2 class="title-07">Exclusive Deals for Real Estate, Retail & Property Management</h2>
+                </div>
+            </div>
+
+            <div class="section__side">
+                <div class="section__subtitle">
+                    <h3 class="title-03">Special Offer for homeowners, interior designers, property managers & luxury venues.</h3>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <div class="section__main">
+        <div class="section__grid">
+
+            <div class="image-contaniner">
+                <img src="/media/exclusive/03.jpg" alt="Exclusive deals">
+            </div>
+
+            <div class="advantages-list-container">
+
+                <section class="features-section">
+                    <div class="features-grid">
+                        @for (feature of featuresItems; track feature.id) {
+                        <div class="feature-item">
+                            <div class="feature-icon-wrapper">
+                            <!-- Використовуємо тег img для SVG іконок -->
+                            <img [src]="feature.iconPath" [alt]="feature.description" class="feature-icon-svg">
+                            </div>
+                            <p class="feature-description">{{ feature.description }}</p>
+                        </div>
+                        }
+                    </div>
+                    <button class="promotions-button">Promotions</button>
+                </section>
+
+                <!-- <ul class="advantages-list">
+                    <li class="advantages-list__item">
+                        
+                        <div class="advantage-item">
+                            <div class="advantage-item__icon">
+                                <div class="advantage-icon advantage-icon--01"></div>
+                            </div>
+                            <div class="advantage-item__title">
+                                <h4 class="title-08"></h4>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul> -->
+            </div>
+
+            <div class="button-container">
+
+            </div>
+
+        </div>
+    </div>
+</section>

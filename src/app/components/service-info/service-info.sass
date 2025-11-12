@@ -1,0 +1,33 @@
+@use '../../../addons/mixins' as *
+
+.section
+    background: rgba(241, 241, 241, 1) url('/media/bg-01.png') no-repeat 50% 50%
+    background-size: contain
+
+.service-items
+    +rwd($tablet-lg)
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+    &__item
+        margin-bottom: 20px
+        +rwd($tablet-lg)
+            margin-bottom: 30px
+            width: 45%
+        &:last-child
+            margin-bottom: 0
+
+.service-item
+    &__icon
+        padding: 20px
+        width: 40px
+        min-width: 40px
+        height: 40px
+        margin-right: 42px
+
+        border-radius: 18px
+        background: rgba(246, 246, 246, 1)
+        border: 1.87px solid rgba(255, 255, 255, 1)
+        box-shadow: 0px 7px 8px 0px rgba(0, 0, 0, 0.05)
+    &__title
+        margin-bottom: 10px

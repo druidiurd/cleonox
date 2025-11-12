@@ -1,0 +1,56 @@
+<div class="gallery-container">
+  <div class="gallery-main">
+    <!-- Додаємо #galleryGrid для ViewChild -->
+    <div class="gallery-grid" #galleryGrid>
+      @for (item of galleryItems(); track item.id) { <!-- Ітеруємо по всіх items, а не visibleItems -->
+        <div class="gallery-item">
+          <div class="gallery-image-wrapper">
+            <img [src]="item.beforeImage" [alt]="item.alt + ' (Before)'" class="gallery-image">
+            <span class="image-label">To</span>
+          </div>
+          <div class="gallery-image-wrapper">
+            <img [src]="item.afterImage" [alt]="item.alt + ' (After)'" class="gallery-image">
+            <span class="image-label">After</span>
+          </div>
+        </div>
+      } @empty {
+        <p class="no-items-message">No gallery items to display.</p>
+      }
+    </div>
+  </div>
+
+  <div class="gallery-navigation">
+    <button
+      class="nav-button prev-button"
+      (click)="scrollLeft()"
+      [disabled]="!canScrollLeft()"
+      aria-label="Previous items"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="pagination-dots">
+      @for (dot of paginationDots(); track dot) {
+        <button
+          class="dot"
+          [class.active]="activeDotIndex() === dot"
+          (click)="goToPage(dot)"
+          aria-label="Go to page {{ dot + 1 }}"
+        ></button>
+      }
+    </div>
+
+    <button
+      class="nav-button next-button"
+      (click)="scrollRight()"
+      [disabled]="!canScrollRight()"
+      aria-label="Next items"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</div>

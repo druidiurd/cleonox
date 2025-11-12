@@ -1,0 +1,95 @@
+@use '../../../addons/mixins' as *
+    
+.page-header
+    background: rgba(241, 241, 241, 1) url(/media/page-header-bg.png) no-repeat 40% 57%
+    background-size: 157%
+    box-sizing: border-box
+    padding-top: 126px
+    +rwd(420px)
+        background-size: 640px
+    +rwd(500px)
+        background-position: -6px 76%
+        background-size: 820px
+    +rwd($tablet-sm)
+        background-position: -60px 115px
+        background-size: 1000px
+    +rwd($tablet-md)
+        background-position: -96px 110px
+        background-size: 1150px
+    +rwd(850px)
+        background-position: -126px 80px
+        background-size: 1200px
+    +rwd($tablet-lg)
+        background-position: -70px 90px
+    +rwd($desktop-sm)
+        background-position: -95px 25px
+        background-size: 1450px
+    +rwd($desktop-md)
+        background-position: 50% 25px
+        background-size: 1380px
+    &__main
+        width: 100%
+        padding: 25px
+        max-width: 1200px
+        margin: 0 auto
+        box-sizing: border-box
+        +rwd($tablet-lg)
+            padding-left: 50px
+            padding-right: 50px
+    &-title
+        font-size: 24px
+        +rwd($tablet-sm)
+            font-size: 30px
+        +rwd($tablet-md)
+            font-size: 34px
+        +rwd($tablet-lg)
+            font-size: 36px
+        +rwd($desktop-sm)
+            font-size: 38px
+    &-subtitle
+        font-size: 19px
+        font-weight: 300
+        +rwd($tablet-md)
+            font-size: 24px
+        +rwd($tablet-lg)
+            font-size: 28px
+    &__item
+        &:nth-child(1)
+            max-width: 340px
+            margin-bottom: 40px
+            margin-right: auto
+            align-self: flex-start
+            +rwd($tablet-sm)
+                max-width: 360px
+            +rwd($tablet-md)
+                max-width: 400px
+            +rwd($tablet-lg)
+                max-width: 420px
+            +rwd($desktop-sm)
+                max-width: 440px
+            +rwd($desktop-md)
+                margin-right: 290px
+        &:nth-child(2)
+            width: 100%
+            +rwd($tablet-sm)
+                width: auto
+                align-self: flex-start
+                margin-top: 0
+        &:nth-child(3)
+            width: 100% 
+            margin-top: 360px
+            +rwd(500px)
+                margin-top: 290px
+            +rwd($tablet-sm)
+                margin-top: 310px
+            +rwd($tablet-md)
+                margin-top: 350px
+            +rwd($desktop-sm)
+                margin-top: 420px
+            +rwd($desktop-md)
+                margin-top: 380px
+            
+
+.page-header-box
+    &__list
+        margin-top: 15px

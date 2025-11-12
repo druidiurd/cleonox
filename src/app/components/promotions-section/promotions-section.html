@@ -1,0 +1,61 @@
+<section class="section section--full-main">
+  <header class="section__header">
+    <div class="section__grid flex">
+
+      <div class="section__side">
+        <div class="section__title">
+          <h2 class="title-07">Promotions</h2>
+        </div>
+      </div>
+
+      <div class="section__side"></div>
+
+    </div>
+  </header>
+
+  <div class="section__main">
+    <div class="promotions-main">
+      <div class="promotions-grid" #promotionsGrid>
+        @for (promotion of promotionsItems(); track promotion.id) {
+          <div class="promotion-item">
+            <div class="promotion-card">
+              <div class="promotion-image-wrapper">
+                <img [src]="promotion.imageUrl" [alt]="promotion.title" class="promotion-image">
+                <div class="promotion-overlay" [ngStyle]="{'background-color': promotion.overlayColor}">
+                  <!-- <div class="promotion-overlay-title">
+                    <h4 class="title-06">{{ promotion.overlayTitle }}</h4>
+                  </div> -->
+                  <!-- <p class="promotion-overlay-subtitle">{{ promotion.overlaySubtitle }}</p> -->
+                </div>
+              </div>
+              <div class="promotion-content">
+                <h4 class="promotion-content-title">{{ promotion.title }}</h4>
+                <p class="promotion-content-description">{{ promotion.description }}</p>
+                <span class="promotion-validity">{{ promotion.validity }}</span>
+              </div>
+            </div>
+          </div> 
+        }
+      </div>
+    </div>
+
+    <div class="promotions-navigation">
+      <button class="nav-button" (click)="scrollLeft()" [disabled]="!canScrollLeft()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+        </svg>
+      </button>
+      <div class="pagination-dots">
+        @for (dot of paginationDots(); track $index) {
+          <button class="dot" [class.active]="activeDotIndex() === $index" (click)="goToPage($index)"></button>
+        }
+      </div>
+      <button class="nav-button" (click)="scrollRight()" [disabled]="!canScrollRight()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</section>
